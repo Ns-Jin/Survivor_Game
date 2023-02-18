@@ -11,7 +11,7 @@ public class Reposition : MonoBehaviour
         coll = GetComponent<Collider2D>();    
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {   
         //필터역할
         if (!collision.CompareTag("Area"))
