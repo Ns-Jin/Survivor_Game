@@ -25,6 +25,16 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 distance = transform.position - playerPos;
+        if (distance.magnitude > 15)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Enemy") || per == -1)
@@ -37,13 +47,5 @@ public class Bullet : MonoBehaviour
             rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Area"))
-            return;
-
-        gameObject.SetActive(false);
     }
 }
