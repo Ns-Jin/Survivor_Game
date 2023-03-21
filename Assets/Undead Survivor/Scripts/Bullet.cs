@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
     {
         Vector3 playerPos = GameManager.instance.player.transform.position;
         Vector3 distance = transform.position - playerPos;
+        
         if (distance.magnitude > 15)
         {
             gameObject.SetActive(false);
